@@ -26,7 +26,7 @@ select * from employees;
 select employee_id,job_id from employees where year(hire_date) between 1990 and 1999;
 
 -- Find the first occurrence of the letter 'A' in each employees Email ID Return the employee_id, email id and the letter position **
-select employee_id,email,charindex('a',lower(email)) as position from employees;
+select employee_id,email,charindex('a',lower(email)) as position from employees where position > 0;
 
 -- Fetch the list of employees(Employee_id, full name, email) whose full name holds characters less than 12
 select employee_id,concat(first_name,' ',last_name) as fullname,email from employees where length(concat(first_name,last_name)) < 12;
@@ -101,7 +101,7 @@ select * from jobs;
 
 
 -- Find the average salary of all the employees who got hired after 8th January 1996 but before 1st January 2000 and round the result to 3 decimals
-select round(avg(salary),2) as avg_salary from employees where hire_date between '1996-01-08' and '2000-01-01';
+select round(avg(salary),3) as avg_salary from employees where hire_date between '1996-01-08' and '2000-01-01';
 
 -- Display Australia, Asia, Antarctica, Europe along with the regions in the region table (Note: Do not insert data into the table)
 -- A. Display all the regions
